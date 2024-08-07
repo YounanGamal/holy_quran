@@ -32,7 +32,7 @@ class _SebhaTabWidgetState extends State<SebhaTabWidget> {
             alignment: Alignment.topCenter,
             children: [
               Image.asset(provider.currentTheme == ThemeMode.light
-                  ? 'assets/image/head of seb7a.png'
+                  ? 'assets/image/head_of_seb7a.png'
                   : 'assets/image/dark_head_of_seb7a.png'),
               Padding(
                 padding: const EdgeInsets.only(top: 78),
@@ -43,7 +43,7 @@ class _SebhaTabWidgetState extends State<SebhaTabWidget> {
                       onTap();
                     },
                     child: Image.asset(provider.currentTheme == ThemeMode.light
-                        ? 'assets/image/body of seb7a.png'
+                        ? 'assets/image/body_of_seb7a.png'
                         : 'assets/image/dark_body_of_seb7a.png'),
                   ),
                 ),

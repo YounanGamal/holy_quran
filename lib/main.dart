@@ -3,6 +3,7 @@ import 'package:holy_quran/Providers/settings_provider.dart';
 import 'package:holy_quran/UI/Home/hadeth_tab/hadeth_detials_screen/hadeth_detials.dart';
 import 'package:holy_quran/UI/Home/home_screen.dart';
 import 'package:holy_quran/UI/Home/quran_tab/chapter_detials_screen/chapter_detials_widget.dart';
+import 'package:holy_quran/UI/Splash/splash.dart';
 import 'package:holy_quran/UI/Style/my_theme_data.dart';
 import 'package:provider/provider.dart';
 
@@ -27,11 +28,12 @@ class HolyQuran extends StatelessWidget {
       darkTheme: MyThemeData.darkTheme,
       debugShowCheckedModeBanner: false,
       routes: {
+        Splash.routeName:(context)=>Splash(),
         HomeScreen.routeName: (context) => HomeScreen(),
         ChapterDetailsWidget.routeName: (context) => ChapterDetailsWidget(),
         HadethDetials.routeName: (context) => HadethDetials(),
       },
-      initialRoute: HomeScreen.routeName,
+      initialRoute: Splash.routeName,
     );
   }
 }

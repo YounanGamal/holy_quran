@@ -27,8 +27,8 @@ class _ChapterDetailsWidgetState extends State<ChapterDetailsWidget> {
           fit: BoxFit.fill,
           image: AssetImage(
             provider.currentTheme == ThemeMode.light
-                ? 'assets/image/default_bg.png'
-                : 'assets/image/dark_bg.png',
+                ? 'assets/image/background.png'
+                : 'assets/image/dark_background.png',
           ),
         ),
       ),

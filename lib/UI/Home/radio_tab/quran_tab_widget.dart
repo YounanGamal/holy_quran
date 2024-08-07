@@ -11,7 +11,7 @@ class RadioTabWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-              'assets/image/551-5517026_radio-vector-png-old-radio-png-vector-transparent.png'),
+              'assets/image/radio_image.png'),
           const SizedBox(
             height: 55,
           ),

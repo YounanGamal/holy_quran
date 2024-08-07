@@ -244,7 +244,7 @@ class QuranTabWidget extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Image.asset(
-              'assets/image/qur2an_screen_logo.png',
+              'assets/image/Screenshot (1).png',
             ),
           ),
           Container(

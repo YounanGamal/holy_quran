@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SettingsProvider extends ChangeNotifier {
-  ThemeMode currentTheme = ThemeMode.system;
+  ThemeMode currentTheme = ThemeMode.light;
 
   void changeApplicationTheme(ThemeMode newTheme) {
     if (newTheme == currentTheme) return;

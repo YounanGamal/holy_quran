@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:holy_quran/Providers/settings_provider.dart';
 import 'package:holy_quran/UI/Home/settings_tab/Theme/theme_bottom_sheet.dart';
 import 'package:holy_quran/UI/Home/settings_tab/local/language_bottom_sheet.dart';
+import 'package:provider/provider.dart';
 
 class SettingsTabWidget extends StatefulWidget {
   static const String rounteName = 'SettingsTabWidget';
@@ -12,6 +14,7 @@ class SettingsTabWidget extends StatefulWidget {
 class _SettingsTabWidgetState extends State<SettingsTabWidget> {
   @override
   Widget build(BuildContext context) {
+    SettingsProvider provider = Provider.of<SettingsProvider>(context);
     return Container(
       margin: EdgeInsets.all(12),
       child: Column(
@@ -27,6 +30,7 @@ class _SettingsTabWidgetState extends State<SettingsTabWidget> {
           InkWell(
             onTap: () {
               showThemeBottomSheet();
+
             },
             child: Container(
               width: double.infinity,
@@ -38,7 +42,7 @@ class _SettingsTabWidgetState extends State<SettingsTabWidget> {
                     Border.all(color: Theme.of(context).primaryColor, width: 2),
               ),
               child: Text(
-                'Light',
+                provider.currentTheme == ThemeMode.light ? 'Light' : 'Dark',
                 style: Theme.of(context).textTheme.labelMedium,
               ),
             ),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:holy_quran/Providers/settings_provider.dart';
 import 'package:holy_quran/UI/Home/hadeth_tab/quran_tab_widget.dart';
 import 'package:holy_quran/UI/Home/quran_tab/quran_tab_widget.dart';
 import 'package:holy_quran/UI/Home/radio_tab/quran_tab_widget.dart';
 import 'package:holy_quran/UI/Home/sebha_tab/quran_tab_widget.dart';
 import 'package:holy_quran/UI/Home/settings_tab/quran_tab_widget.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'Home-Screen';
@@ -25,12 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+  SettingsProvider provider = Provider.of<SettingsProvider>(context);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.fill,
           image: AssetImage(
-            ThemeMode == ThemeMode.light
+            provider.currentTheme == ThemeMode.light
                 ? 'assets/image/default_bg.png'
                 : 'assets/image/dark_bg.png',
           ),

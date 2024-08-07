@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:holy_quran/Providers/settings_provider.dart';
 import 'package:holy_quran/UI/Home/quran_tab/chapter_detials_screen/verse_widget.dart';
 import 'package:holy_quran/UI/Home/quran_tab/chapter_title_widget.dart';
+import 'package:provider/provider.dart';
 
 class ChapterDetailsWidget extends StatefulWidget {
   static const String routeName = 'chapter-details';
@@ -15,6 +17,7 @@ class _ChapterDetailsWidgetState extends State<ChapterDetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider provider = Provider.of<SettingsProvider>(context);
     ChapterDetialsArgs args =
         ModalRoute.of(context)?.settings.arguments as ChapterDetialsArgs;
     if (verses.isEmpty) readFile(args.index);
@@ -23,7 +26,7 @@ class _ChapterDetailsWidgetState extends State<ChapterDetailsWidget> {
         image: DecorationImage(
           fit: BoxFit.fill,
           image: AssetImage(
-            ThemeMode == ThemeMode.light
+            provider.currentTheme == ThemeMode.light
                 ? 'assets/image/default_bg.png'
                 : 'assets/image/dark_bg.png',
           ),

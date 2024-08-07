@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:holy_quran/Providers/settings_provider.dart';
 import 'package:holy_quran/UI/Home/hadeth_tab/hadeth_model.dart';
+import 'package:provider/provider.dart';
 
 class HadethDetials extends StatelessWidget {
   static const String routeName = 'hadeth-detials';
   @override
   Widget build(BuildContext context) {
+    SettingsProvider provider = Provider.of<SettingsProvider>(context);
     HadethItem args = ModalRoute.of(context)?.settings.arguments as HadethItem;
     return Container(
         decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.fill,
             image: AssetImage(
-              ThemeMode == ThemeMode.light
-                  ? 'assets/image/default_bg.png'
-                  : 'assets/image/dark_bg.png',
+              provider.currentTheme == ThemeMode.light
+                  ? 'assets/image/background.png'
+                  : 'assets/image/dark_background.png',
             ),
           ),
         ),

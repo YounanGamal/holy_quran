@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:holy_quran/Providers/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class SebhaTabWidget extends StatefulWidget {
   static const String rounteName = 'SebhaTabWidget';
@@ -21,15 +23,17 @@ class _SebhaTabWidgetState extends State<SebhaTabWidget> {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider provider = Provider.of<SettingsProvider>(context);
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Stack(
             alignment: Alignment.topCenter,
             children: [
-              Image.asset('assets/image/head of seb7a.png'),
+              Image.asset(provider.currentTheme == ThemeMode.light
+                  ? 'assets/image/head_of_seb7a.png'
+                  : 'assets/image/dark_head_of_seb7a.png'),
               Padding(
                 padding: const EdgeInsets.only(top: 78),
                 child: Transform.rotate(
@@ -38,7 +42,9 @@ class _SebhaTabWidgetState extends State<SebhaTabWidget> {
                     onTap: () {
                       onTap();
                     },
-                    child: Image.asset('assets/image/body of seb7a.png'),
+                    child: Image.asset(provider.currentTheme == ThemeMode.light
+                        ? 'assets/image/body_of_seb7a.png'
+                        : 'assets/image/dark_body_of_seb7a.png'),
                   ),
                 ),
               )
@@ -60,7 +66,7 @@ class _SebhaTabWidgetState extends State<SebhaTabWidget> {
             width: 60,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).primaryColor
             ),
             child: Text(
               '$count',
@@ -76,11 +82,17 @@ class _SebhaTabWidgetState extends State<SebhaTabWidget> {
             width: 120,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: Theme.of(context).primaryColor,
+              color: provider.currentTheme == ThemeMode.light
+                  ? Color(0xFFB7935F)
+                  : Color(0xffFACC1D),
             ),
             child: Text(
               '${askar[index]}',
-              style: Theme.of(context).textTheme.titleMedium,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ],

@@ -22,6 +22,7 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
           InkWell(
             onTap: () {
               provider.changeApplicationTheme(ThemeMode.light);
+              Navigator.pop(context);
             },
             child: provider.currentTheme == ThemeMode.light
                 ? getSelectedTheme('Light')
@@ -33,6 +34,7 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
           InkWell(
             onTap: () {
               provider.changeApplicationTheme(ThemeMode.dark);
+              Navigator.pop(context);
             },
             child: provider.currentTheme == ThemeMode.dark
                 ? getSelectedTheme('Dark')
